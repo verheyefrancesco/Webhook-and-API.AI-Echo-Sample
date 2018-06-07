@@ -35,6 +35,15 @@ restService.post("/echo2", function(req, res) {
   return res.json({ fulfillmentText: 'This is a sample response from your webhook!' });
 });
 
+restService.post("/echo3", function(req, res) {
+  var speech = req.body.inputs && req.body.inputs.arguments && req.body.inputs.arguments[0].textValue;
+  if(s == 'bonjour') {
+    return res.json({ fulfillmentText: speech + ' is correct. That\'s it for today'});
+  } else {
+    return res.json({ fulfillmentText: speech + ' is not correct. The correct answer was bonjour.'});
+  }
+});
+
 
 restService.post("/audio", function(req, res) {
   var speech = "";
