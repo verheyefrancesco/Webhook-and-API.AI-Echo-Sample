@@ -37,7 +37,7 @@ restService.post("/echo2", function(req, res) {
 
 restService.post("/echo3", function(req, res) {
   var speech = req.body.inputs && req.body.inputs[0].arguments && req.body.inputs[0].arguments[0].textValue;
-  if(s == 'bonjour') {
+  if(speech == 'bonjour') {
     return res.json({ fulfillmentText: speech + ' is correct. That\'s it for today'});
   } else {
     return res.json({ fulfillmentText: speech + ' is not correct. The correct answer was bonjour.'});
