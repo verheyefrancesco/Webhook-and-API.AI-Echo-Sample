@@ -31,6 +31,11 @@ restService.post("/echo", function(req, res) {
   });
 });
 
+restService.post("/echo2", function(req, res) {
+  return res.json({ fulfillmentText: 'This is a sample response from your webhook!' });
+});
+
+
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
