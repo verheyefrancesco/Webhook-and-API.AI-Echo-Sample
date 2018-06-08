@@ -132,16 +132,13 @@ restService.post("/echo", function (req, res) {
 });
 
 restService.post("/echo2", function (req, res) {
+  // var speech = req.body.inputs && req.body.inputs[0].arguments && req.body.inputs[0].arguments[0].textValue ? req.body.inputs[0].arguments[0].textValue : 'your answer';
+  // if (speech == 'bonjour') {
+  //     return res.json({fulfillmentText: speech + ' is correct. That\'s it for today'});
+  // } else {
+  //     return res.json({fulfillmentText: speech + ' is not correct. The correct answer was bonjour.'});
+  // }
     return res.json({fulfillmentText: 'This is a sample response from your webhook!'});
-});
-
-restService.post("/echo3", function (req, res) {
-    var speech = req.body.inputs && req.body.inputs[0].arguments && req.body.inputs[0].arguments[0].textValue ? req.body.inputs[0].arguments[0].textValue : 'your answer';
-    if (speech == 'bonjour') {
-        return res.json({fulfillmentText: speech + ' is correct. That\'s it for today'});
-    } else {
-        return res.json({fulfillmentText: speech + ' is not correct. The correct answer was bonjour.'});
-    }
 });
 
 restService.post("/makeAppointment", function (req, res) {
