@@ -67,10 +67,8 @@ function getAccessToken(oAuth2Client, callback) {
         console.error(err);
     }
     callback(oAuth2Client);
-})
-    ;
-})
-    ;
+});
+});
 }
 
 /**
