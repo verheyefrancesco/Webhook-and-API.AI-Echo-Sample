@@ -154,21 +154,19 @@ restService.post("/makeAppointment", function (req, res) {
 
         authorize(JSON.parse(content), function (auth) {
           var event = {
-              'summary': 'Google I/O 2015',
+              'summary': 'Afspraak met DialogFlow!!!',
               'location': '800 Howard St., San Francisco, CA 94103',
-              'description': 'A chance to hear more about Google\'s developer products.',
+              'description': 'Dit is een afspraak die aangemaakt is met DialogFlow.',
               'start': {
                   'dateTime': '2018-05-28T09:00:00-07:00',
-                  'timeZone': 'America/Los_Angeles',
+                  'timeZone': 'Europe/Brussels',
               },
               'end': {
                   'dateTime': '2018-05-28T17:00:00-07:00',
-                  'timeZone': 'America/Los_Angeles',
+                  'timeZone': 'Europe/Brussels',
               },
               'attendees': [
-                  {'email': 'lpage@example.com'},
-                  {'email': 'sbrin@example.com'},
-
+                  {'email': 'verheye.franceco@gmail.com'}
               ],
               'reminders': {
                   'useDefault': false,
