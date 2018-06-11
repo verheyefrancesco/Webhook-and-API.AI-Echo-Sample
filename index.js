@@ -172,6 +172,10 @@ restService.post("/makeAppointment", function (req, res) {
               },
           };
 
+          var parameters = req.body.queryResult.parameters;
+          var timeParam = parameters.time;
+          event.start.dateTime = timeParam;
+
           const calendar = google.calendar({version: 'v3', auth});
           calendar.events.insert({
               auth: auth,
