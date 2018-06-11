@@ -155,6 +155,7 @@ restService.post("/makeAppointment", function (req, res) {
         authorize(JSON.parse(content), function (auth) {
           var event = {
               'summary': 'Google I/O 2015',
+              'location': '800 Howard St., San Francisco, CA 94103',
               'description': 'A chance to hear more about Google\'s developer products.',
               'start': {
                   'dateTime': '2018-05-28T09:00:00-07:00',
@@ -165,7 +166,9 @@ restService.post("/makeAppointment", function (req, res) {
                   'timeZone': 'America/Los_Angeles',
               },
               'attendees': [
-                  {'email': 'verheye.francesco@gmail.com'}
+                  {'email': 'lpage@example.com'},
+                  {'email': 'sbrin@example.com'},
+
               ],
               'reminders': {
                   'useDefault': false,
@@ -176,9 +179,12 @@ restService.post("/makeAppointment", function (req, res) {
               },
           };
 
-          console.log('event before setting dateTime ' + event);
+          var eventString = JSON.stringify(event);
+          console.log('event before setting dateTime ' + eventString);
           event.start.dateTime = timeParam;
           event.end.endTime = '2018-06-12T16:00:00+02:00';
+
+          eventString = JSON.stringify(event);
           console.log('event after setting dateTime ' + event);
           
 
