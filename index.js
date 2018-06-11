@@ -181,10 +181,17 @@ restService.post("/makeAppointment", function (req, res) {
 
           var eventString = JSON.stringify(event);
           console.log('event before setting dateTime ' + eventString);
-          //event.start.dateTime = timeParam;
-          //event.end.endTime = '2018-06-12T16:00:00+02:00';
-          event.start.dateTime = '2018-06-12T12:00:00+02:00';
-          event.end.dateTime = '2018-06-14T12:00:00+02:00';
+          
+          var dateTime = Date.parse(timeParam);
+          var startDateTime = new Date(dateTime);
+          var endDateTime = new Date(dateTime + 4*3600*1000)
+          console.log('startDateTime ' + startDateTime);
+          console.log('endDateTime ' + endDateTime);
+
+          event.start.dateTime = startDateTime;
+          event.end.dateTime = endDateTime;
+          //event.start.dateTime = '2018-06-12T12:00:00+02:00';
+          //event.end.dateTime = '2018-06-14T12:00:00+02:00';
 
           eventString = JSON.stringify(event);
           console.log('event after setting dateTime ' + event);
