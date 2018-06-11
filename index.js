@@ -91,8 +91,7 @@ function listEvents(auth) {
         events.map((event, i) => {
             const start = event.start.dateTime || event.start.date;
         console.log(`${start} - ${event.summary}`);
-    })
-        ;
+    });
     } else {
         console.log('No upcoming events found.');
     }
@@ -136,7 +135,13 @@ restService.post("/echo2", function (req, res) {
   // } else {
   //     return res.json({fulfillmentText: speech + ' is not correct. The correct answer was bonjour.'});
   // }
-    return res.json({fulfillmentText: 'This is a sample response from your webhook!'});
+  var parameters = req.body.queryResult.parameters;
+  var dateParam = parameters.date;
+  var timeParam = parameters.time;
+  console.log('parameters: ' + parameters);
+  console.log('dateParam: ' + dateParam);
+  console.log('timeParam: ' + timeParam);
+  return res.json({fulfillmentText: 'This is a sample response from your webhook!'});
 });
 
 restService.post("/makeAppointment", function (req, res) {
@@ -146,7 +151,6 @@ restService.post("/makeAppointment", function (req, res) {
         authorize(JSON.parse(content), function (auth) {
           var event = {
               'summary': 'Google I/O 2015',
-              'location': '800 Howard St., San Francisco, CA 94103',
               'description': 'A chance to hear more about Google\'s developer products.',
               'start': {
                   'dateTime': '2018-05-28T09:00:00-07:00',
@@ -157,8 +161,7 @@ restService.post("/makeAppointment", function (req, res) {
                   'timeZone': 'America/Los_Angeles',
               },
               'attendees': [
-                  {'email': 'lpage@example.com'},
-                  {'email': 'sbrin@example.com'},
+                  {'email': 'verheye.francesco@gmail.com'}
               ],
               'reminders': {
                   'useDefault': false,
@@ -176,11 +179,11 @@ restService.post("/makeAppointment", function (req, res) {
               resource: event,
           }, function (err, event) {
               if (err) {
-                  console.log('There was an error contacting the Calendar service: ' + err);
+                  console.log('Er is een fout opgetreden bij het aanmaken van uw afspraak: ' + err);
                   return res.json({fulfillmentText: 'Something went wrong.'});
               }
               console.log('Event created: %s', event.htmlLink);
-              return res.json({fulfillmentText: 'Done! There is a new event created in the Google Calendar.'});
+              return res.json({fulfillmentText: 'Klaar! Uw afspraak is gepland in de agenda.'});
           });
 
         });
