@@ -148,6 +148,10 @@ restService.post("/makeAppointment", function (req, res) {
     // Load client secrets from a local file.
     try {
         const content = fs.readFileSync('client_secret.json');
+        var parameters = req.body.queryResult.parameters;
+        var timeParam = parameters.date;
+        console.log('timeParam: ' + timeParam);
+
         authorize(JSON.parse(content), function (auth) {
           var event = {
               'summary': 'Google I/O 2015',
@@ -172,9 +176,10 @@ restService.post("/makeAppointment", function (req, res) {
               },
           };
 
-          var parameters = req.body.queryResult.parameters;
-          var timeParam = parameters.time;
+          console.log('event before setting dateTime ' + event);
           event.start.dateTime = timeParam;
+          console.log('event after setting dateTime ' + event);
+          
 
           const calendar = google.calendar({version: 'v3', auth});
           calendar.events.insert({
