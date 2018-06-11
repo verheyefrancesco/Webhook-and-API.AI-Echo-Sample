@@ -178,6 +178,7 @@ restService.post("/makeAppointment", function (req, res) {
 
           console.log('event before setting dateTime ' + event);
           event.start.dateTime = timeParam;
+          event.end.endTime = '2018-06-12T16:00:00+02:00';
           console.log('event after setting dateTime ' + event);
           
 
