@@ -149,7 +149,7 @@ restService.post("/makeAppointment", function (req, res) {
     try {
         const content = fs.readFileSync('client_secret.json');
         var parameters = req.body.queryResult.parameters;
-        var timeParam = parameters.date;
+        var timeParam = parameters.time;
         console.log('timeParam: ' + timeParam);
 
         authorize(JSON.parse(content), function (auth) {
@@ -182,7 +182,7 @@ restService.post("/makeAppointment", function (req, res) {
           
           var dateTime = Date.parse(timeParam);
           var startDateTime = new Date(dateTime);
-          var endDateTime = new Date(dateTime + 4*3600*1000)
+          var endDateTime = new Date(dateTime + 1*3600*1000)
           console.log('startDateTime ' + startDateTime);
           console.log('endDateTime ' + endDateTime);
 
