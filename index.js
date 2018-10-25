@@ -191,8 +191,8 @@ restService.post("/makeAppointment", function (req, res) {
           console.log(startDateTime);
           console.log(endDateTime);
 
-          event.start.dateTime = startDateTime;
-          event.end.dateTime = endDateTime;
+          //event.start.dateTime = startDateTime;
+          //event.end.dateTime = endDateTime;
           //event.start.dateTime = '2018-06-12T12:00:00+02:00';
           //event.end.dateTime = '2018-06-14T12:00:00+02:00';
 
@@ -211,7 +211,7 @@ restService.post("/makeAppointment", function (req, res) {
                   return res.json({fulfillmentText: 'Something went wrong.'});
               }
               console.log('Event created: %s', event.htmlLink);
-              return res.json({fulfillmentText: 'Klaar! Uw afspraak is gepland in de agenda.'});
+              return res.json({fulfillmentText: 'Klaar! Uw afspraak is gepland in uw agenda.'});
           });
 
         });
