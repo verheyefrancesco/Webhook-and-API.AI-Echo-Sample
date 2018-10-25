@@ -155,15 +155,15 @@ restService.post("/makeAppointment", function (req, res) {
 
         authorize(JSON.parse(content), function (auth) {
           var event = {
-              'summary': 'Afspraak met DialogFlow!!!',
-              'location': '800 Howard St., San Francisco, CA 94103',
+              'summary': 'Hackdays event from Google Assistant',
+              'location': 'CCV Lab, 8500 Kortrijk',
               'description': 'Dit is een afspraak die aangemaakt is met DialogFlow.',
               'start': {
-                  'dateTime': '2018-05-28T09:00:00-07:00',
+                  'dateTime': '2018-11-21T09:09:00-07:00',
                   'timeZone': 'Europe/Brussels',
               },
               'end': {
-                  'dateTime': '2018-05-28T17:00:00-07:00',
+                  'dateTime': '2018-11-22T17:17:00-07:00',
                   'timeZone': 'Europe/Brussels',
               },
               'attendees': [
